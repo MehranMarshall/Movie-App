@@ -1,6 +1,16 @@
+body {
+  background: #141414;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .App {
-  width: 100vw;
+  width: 95vw;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .movieList {
@@ -13,4 +23,32 @@
 
 .movieList img {
   margin: 5px;
+}
+
+.header {
+  display: flex;
+  width: 960px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header input {
+  outline: 0;
+  border: 0;
+  padding: 7px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  margin: 5px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.header button {
+  outline: 0;
+  border: 0;
+  padding: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }

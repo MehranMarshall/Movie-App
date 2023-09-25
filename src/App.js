@@ -5,20 +5,25 @@ import { MovieSearch } from "./components/MovieSearch";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
-  useEffect(
-    (search) => {
-      fetch(`http://www.omdbapi.com/?s=${search}&apikey=4794ff04`)
-        .then((res) => res.json())
-        .then((data) => setMovies(data.Search))
-        .catch((err) => console.log(err));
-    },
-    [search]
-  );
+  useEffect(() => {
+    fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=4794ff04`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.Search) {
+          setMovies(data.Search);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [searchValue]);
   return (
     <div className="App">
-      <MovieSearch heading="Movies" search={search} setSearch={setSearch} />
+      <MovieSearch
+        heading="Movies"
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       <MovieList movies={movies} />
     </div>
   );

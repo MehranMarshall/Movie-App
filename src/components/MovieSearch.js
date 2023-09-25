@@ -1,16 +1,19 @@
 import React from "react";
 
-export const MovieSearch = ({ heading, search, setSearch }) => {
+export const MovieSearch = ({ heading, searchValue, setSearchValue }) => {
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
   return (
-    <div className="search">
+    <div className="header">
       <h1>{heading}</h1>
-      <input
-        placeholder="search a movie"
-        value={search.value}
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      />
+      <div>
+        <input
+          placeholder="search a movie"
+          value={searchValue}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 };

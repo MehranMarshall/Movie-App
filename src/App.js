@@ -6,6 +6,7 @@ import { MovieSearch } from "./components/MovieSearch";
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [favourites, setFavourites] = useState([]);
 
   useEffect(() => {
     fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=4794ff04`)

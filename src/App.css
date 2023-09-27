@@ -2,7 +2,7 @@ body {
   background: #141414;
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .App {
@@ -14,7 +14,7 @@ body {
   padding: 20px;
 }
 
-.movieList {
+.movieList, .favList {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -24,6 +24,10 @@ body {
   align-self: center;
   flex-wrap: wrap;
   position: relative;
+}
+
+.movieList {
+  margin-bottom: 100px;
 }
 
 .poster {

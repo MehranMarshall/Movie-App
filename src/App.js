@@ -20,14 +20,25 @@ function App() {
       .catch((err) => console.log(err));
   }, [searchValue]);
 
+  useEffect(() => {
+    const setFavToLocale = JSON.parse(localStorage.getItem("favMoviesStorage"));
+    setFavourites(setFavToLocale);
+  }, []);
+
+  const saveToLocaleStorage = (items) => {
+    localStorage.setItem("favMoviesStorage", JSON.stringify(items));
+  };
+
   const addToFav = (movie) => {
     const newFav = [...favourites, movie];
     setFavourites(newFav);
+    saveToLocaleStorage(newFav);
   };
 
   const removeFromFav = (movie) => {
     const newFav = favourites.filter((fav) => fav.imdbID !== movie.imdbID);
     setFavourites(newFav);
+    saveToLocaleStorage(newFav);
   };
   return (
     <div className="App">
